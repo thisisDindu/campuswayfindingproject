@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 
 // ── CONFIG — change this to your deployed URL ──────────────────
 const BASE_URL = window.location.origin + window.location.pathname.replace(/\/$/, "");

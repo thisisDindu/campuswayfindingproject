@@ -94,7 +94,7 @@ function dijkstra(from: NodeId, to: NodeId): { path: NodeId[]; dist: number } | 
     });
     if (!u || dist[u] === Infinity || u === to) break;
     visited.add(u);
-    GRAPH[u].forEach(([v, w]) => {
+    GRAPH[u].forEach(([v, w]:[NodeId,number]) => {
       const nd = dist[u!] + w;
       if (nd < dist[v]) { dist[v] = nd; prev[v] = u; }
     });
