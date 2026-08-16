@@ -70,8 +70,17 @@ const EDGES: [NodeId, NodeId, number][] = [
 ];
 
 // Build adjacency map
-function buildGraph(): Record<NodeId, [NodeId, number][]> {
-  const g = {} as Record<NodeId, [NodeId, number][]>;
+// function buildGraph(): Record<NodeId, [NodeId, number][]> {
+//   const g = {} as Record<NodeId, [NodeId, number][]>;
+//   (Object.keys(NODES) as NodeId[]).forEach(id => { g[id] = []; });
+//   EDGES.forEach(([a, b, w]) => {
+//     g[a].push([b, w]);
+//     g[b].push([a, w]);
+//   });
+//   return g;
+// }
+function buildGraph(): Record<string, [string, number][]> {
+  const g: Record<string, [string, number][]> = {};
   (Object.keys(NODES) as NodeId[]).forEach(id => { g[id] = []; });
   EDGES.forEach(([a, b, w]) => {
     g[a].push([b, w]);
@@ -94,7 +103,7 @@ function dijkstra(from: NodeId, to: NodeId): { path: NodeId[]; dist: number } | 
     });
     if (!u || dist[u] === Infinity || u === to) break;
     visited.add(u);
-    GRAPH[u].forEach(([v, w]:[NodeId,number]) => {
+    GRAPH[u].forEach(([v, w]) => {
       const nd = dist[u!] + w;
       if (nd < dist[v]) { dist[v] = nd; prev[v] = u; }
     });
