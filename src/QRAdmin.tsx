@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 // ── CONFIG — change this to your deployed URL ──────────────────
-const BASE_URL = window.location.origin + window.location.pathname.replace(/\/$/, "");
-
+// const BASE_URL = window.location.origin + window.location.pathname.replace(/\/$/, "");
+const BASE_URL = "https://campuswayfindingproject.vercel.app";
 // ── Building list (must match NAUWayfinding.tsx ids) ───────────
 const BUILDINGS = [
   { id: "joint_faculty",  name: "Joint Faculty",            full: "Joint Faculty of Biosciences & Physical Sciences", type: "Academic"    },
