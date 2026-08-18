@@ -19,7 +19,7 @@ export default function App() {
   // Simple client-side routing — no router library needed
   // /admin  → QR admin page
   // anything else → wayfinding map
-  const isAdmin = window.location.pathname.endsWith("/admin");
+  const isAdmin = window.location.pathname.includes("/admin")&& !window.location.search.includes("from=");
  
   return isAdmin ? <QRAdmin /> : <NAUWayfinding />;
 }
